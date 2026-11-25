@@ -3,241 +3,427 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CRYSQUAD</title>
+<title>НЕФОР.ЗОНА — не по правилам</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Rubik+Glitch&family=Oswald:wght@400;700&family=Caveat:wght@700&family=IBM+Plex+Mono:wght@400;700&family=Rubik+Dirt&display=swap" rel="stylesheet">
 <style>
-:root{--red:#d6001c;--yellow:#ffe600;--paper:#e9e3d1}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#111;color:#fafafa;font-family:"Courier New",monospace}
-a{color:inherit;text-decoration:none}
-.imp{font-family:Impact,"Arial Black",sans-serif;text-transform:uppercase}
+  :root{
+    --black:#0b0b0b;
+    --paper:#e8e4d8;
+    --acid:#c6ff00;
+    --pink:#ff2e88;
+    --red:#e10600;
+    --f-spray:'Rubik Spray Paint','Impact',sans-serif;
+    --f-dirt:'Rubik Dirt','Impact',sans-serif;
+    --f-cond:'Oswald','Arial Narrow',sans-serif;
+    --f-hand:'Caveat','Comic Sans MS',cursive;
+    --f-mono:'IBM Plex Mono','Courier New',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--black);
+    color:var(--paper);
+    font-family:var(--f-mono);
+    line-height:1.55;
+    overflow-x:hidden;
+    cursor:crosshair;
+  }
+  /* шум как на ксероксе */
+  body::after{
+    content:"";position:fixed;inset:0;pointer-events:none;z-index:999;opacity:.18;mix-blend-mode:overlay;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+  a{color:inherit}
+  ::selection{background:var(--acid);color:var(--black)}
 
-nav{display:flex;justify-content:space-between;align-items:center;padding:12px 24px;
-  background:#000;border-bottom:4px solid var(--red);position:sticky;top:0;z-index:5}
-nav .logo{font-size:26px;letter-spacing:2px}
-nav .logo b{color:var(--red)}
-nav a.l{margin-left:16px;text-transform:uppercase;font-weight:700;font-size:14px}
-nav a.l:hover{background:var(--yellow);color:#000;padding:2px 6px}
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--black);
+    border-bottom:4px dashed var(--acid);
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+    padding:.6rem 1.2rem;gap:.5rem;
+  }
+  .logo{font-family:var(--f-spray);font-size:1.6rem;color:var(--acid);text-decoration:none;transform:rotate(-2deg)}
+  nav ul{display:flex;gap:1.2rem;list-style:none;flex-wrap:wrap}
+  nav a.l{font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.1em;text-decoration:none;font-weight:700}
+  nav a.l:hover{background:var(--pink);color:var(--black);padding:0 .3rem;transform:rotate(3deg);display:inline-block}
 
-.hero{padding:80px 20px 70px;text-align:center;
-  background:radial-gradient(circle at 15% 25%,rgba(214,0,28,.35),transparent 45%),
-             radial-gradient(circle at 85% 80%,rgba(214,0,28,.25),transparent 45%)}
-.ransom{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
-.ransom span{font-family:Impact,sans-serif;font-size:clamp(46px,11vw,130px);line-height:1;
-  padding:0 .12em;box-shadow:4px 4px 0 #000;display:inline-block}
-.ransom span:nth-child(1){background:#fafafa;color:#000;transform:rotate(-5deg)}
-.ransom span:nth-child(2){background:var(--red);color:#fff;transform:rotate(3deg)}
-.ransom span:nth-child(3){background:#000;color:var(--yellow);border:3px solid #fff;transform:rotate(-2deg)}
-.ransom span:nth-child(4){background:var(--yellow);color:#000;transform:rotate(6deg)}
-.ransom span:nth-child(5){background:var(--paper);color:var(--red);transform:rotate(-4deg)}
-.ransom span:nth-child(6){background:#000;color:#fff;border:3px dashed var(--red);transform:rotate(2deg)}
-.ransom span:nth-child(7){background:#fafafa;color:#000;transform:rotate(-6deg)}
-.ransom span:nth-child(8){background:var(--red);color:var(--yellow);transform:rotate(4deg)}
-.tag{display:inline-block;margin-top:36px;background:var(--paper);color:#000;padding:12px 22px;
-  font-size:18px;transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--red)}
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;padding:3rem 1rem 6rem;overflow:hidden;
+    background:
+      radial-gradient(circle at 20% 20%,rgba(255,46,136,.25),transparent 40%),
+      radial-gradient(circle at 80% 70%,rgba(198,255,0,.18),transparent 40%),
+      repeating-linear-gradient(45deg,#0b0b0b 0 14px,#101010 14px 28px);
+  }
+  .glitch{
+    font-family:'Rubik Glitch',var(--f-spray);
+    font-size:clamp(3.5rem,14vw,11rem);
+    line-height:.95;color:var(--paper);position:relative;
+    text-transform:uppercase;
+    text-shadow:4px 4px 0 var(--pink),-4px -4px 0 var(--acid);
+    animation:shake 3s infinite;
+  }
+  @keyframes shake{
+    0%,90%,100%{transform:translate(0)}
+    92%{transform:translate(-4px,2px) skew(2deg)}
+    94%{transform:translate(5px,-3px) skew(-3deg)}
+    96%{transform:translate(-3px,-2px)}
+  }
+  .hand{font-family:var(--f-hand);font-size:clamp(1.6rem,4vw,2.6rem);color:var(--acid);transform:rotate(-3deg);margin:1rem 0 2rem}
+  .btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center}
+  .btn{
+    font-family:var(--f-cond);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:1.2rem;
+    padding:.8rem 1.6rem;border:3px solid var(--black);background:var(--acid);color:var(--black);
+    text-decoration:none;box-shadow:6px 6px 0 var(--pink);transition:.15s;cursor:pointer;display:inline-block
+  }
+  .btn:hover{transform:translate(4px,4px) rotate(-2deg);box-shadow:2px 2px 0 var(--pink)}
+  .btn.alt{background:var(--paper);box-shadow:6px 6px 0 var(--red)}
+  .btn.alt:hover{box-shadow:2px 2px 0 var(--red)}
 
-.tape{background:repeating-linear-gradient(-45deg,var(--yellow) 0 22px,#000 22px 44px);
-  padding:10px 0;margin:30px 0}
-.tape div{background:var(--yellow);color:#000;font-family:Impact,sans-serif;font-size:24px;
-  padding:6px 0;overflow:hidden;white-space:nowrap}
-.tape span{display:inline-block;animation:run 20s linear infinite}
-@keyframes run{to{transform:translateX(-50%)}}
+  .badge{
+    position:absolute;right:5%;top:12%;width:150px;height:150px;border-radius:50%;
+    background:var(--pink);color:var(--black);display:grid;place-items:center;
+    font-family:var(--f-spray);font-size:1.5rem;text-align:center;line-height:1;
+    border:4px dashed var(--black);transform:rotate(15deg);animation:spin 14s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(375deg)}}
+  .anarchy{position:absolute;left:4%;bottom:10%;font-size:7rem;color:var(--red);transform:rotate(-12deg);opacity:.85;font-family:var(--f-spray)}
 
-section{max-width:1000px;margin:0 auto;padding:60px 24px}
-h2{font-family:Impact,sans-serif;text-transform:uppercase;font-size:clamp(38px,7vw,80px);
-  line-height:1;margin-bottom:34px}
-h2 span{background:#fafafa;color:#000;padding:0 .15em;display:inline-block;transform:rotate(-2deg)}
-h2 em{font-style:normal;background:var(--red);color:#fff;padding:0 .15em;display:inline-block;
-  transform:rotate(2deg);margin-left:6px}
+  /* ---------- ЛЕНТА ---------- */
+  .tape{
+    background:var(--acid);color:var(--black);overflow:hidden;white-space:nowrap;
+    transform:rotate(-2deg);margin:-2.5rem -2rem 0;position:relative;z-index:5;
+    border-top:4px solid var(--black);border-bottom:4px solid var(--black);
+    font-family:var(--f-cond);font-weight:700;font-size:1.5rem;text-transform:uppercase;padding:.4rem 0;
+  }
+  .tape.b{background:var(--pink);transform:rotate(1.5deg);margin-top:-1.2rem;z-index:4}
+  .tape span{display:inline-block;padding-left:100%;animation:marq 22s linear infinite}
+  .tape.b span{animation-direction:reverse;animation-duration:28s}
+  @keyframes marq{to{transform:translateX(-100%)}}
 
-.paper{background:var(--paper);color:#111;padding:30px;box-shadow:8px 8px 0 #000;border:2px solid #000}
-.paper p{line-height:1.8;margin-bottom:12px;font-size:17px}
-.paper mark{background:var(--yellow);padding:0 4px}
+  /* ---------- СЕКЦИИ ---------- */
+  section{padding:6rem 1.2rem 4rem;max-width:1150px;margin:0 auto}
+  h2{
+    font-family:var(--f-spray);font-size:clamp(2.2rem,7vw,4.5rem);text-transform:uppercase;
+    color:var(--acid);margin-bottom:2rem;transform:rotate(-1.5deg);display:inline-block;
+    text-shadow:3px 3px 0 var(--red);
+  }
 
-.patches{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:40px}
-.patch{padding:26px 16px;text-align:center;border:4px dashed #fff;box-shadow:6px 6px 0 #000}
-.patch h3{font-family:Impact,sans-serif;font-size:34px;text-transform:uppercase}
-.patch small{text-transform:uppercase;letter-spacing:.1em}
-.patch:nth-child(1){background:var(--red)}
-.patch:nth-child(2){background:#000;border-color:var(--yellow);color:var(--yellow)}
-.patch:nth-child(3){background:var(--paper);color:#000;border-color:#000}
+  /* бумага с рваным краем */
+  .paper{
+    background:var(--paper);color:var(--black);padding:2.5rem 2rem;position:relative;
+    clip-path:polygon(0 2%,4% 0,9% 2%,15% 0,22% 3%,30% 0,38% 2%,45% 0,53% 3%,61% 0,70% 2%,78% 0,86% 3%,93% 0,100% 2%,
+      100% 97%,95% 100%,88% 97%,80% 100%,72% 97%,63% 100%,55% 97%,46% 100%,37% 97%,28% 100%,18% 97%,9% 100%,0 97%);
+    transform:rotate(.8deg);
+    background-image:repeating-linear-gradient(0deg,transparent 0 31px,rgba(0,0,0,.07) 31px 32px);
+  }
+  .paper p{font-size:1.1rem;margin-bottom:1rem;max-width:70ch}
+  .paper b{background:var(--acid);padding:0 .2rem}
+  .paper .mark{background:var(--pink);padding:0 .25rem;color:var(--black)}
+  .ransom{font-family:var(--f-cond);font-size:clamp(1.6rem,5vw,3rem);margin-bottom:1.5rem;line-height:1.5}
+  .ransom span{display:inline-block;padding:0 .25rem;margin:0 1px;border:1px solid #000}
+  .tape-piece{position:absolute;top:-6px;left:40%;width:120px;height:32px;background:rgba(198,255,0,.7);transform:rotate(-4deg)}
 
-/* треки */
-.tracks{background:#000;border:3px solid #fafafa;padding:8px 22px}
-.track{display:grid;grid-template-columns:44px 1fr;gap:6px 14px;padding:16px 0;border-bottom:1px dashed #444;align-items:center}
-.track:last-child{border:none}
-.track .n{font-family:Impact,sans-serif;font-size:28px;color:var(--red);grid-row:span 2}
-.track .t{text-transform:uppercase;font-weight:700;font-size:18px}
-.track audio{width:100%;grid-column:2}
-.track .del{grid-column:2;justify-self:start;background:none;border:2px solid var(--red);color:var(--red);
-  padding:3px 12px;font-family:inherit;cursor:pointer;text-transform:uppercase;font-size:12px}
-.track .del:hover{background:var(--red);color:#fff}
-.empty{padding:24px 0;color:#888}
+  /* ---------- ТУСОВКИ ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+  .card{
+    background:var(--paper);color:var(--black);padding:1.4rem;border:4px solid var(--black);
+    box-shadow:8px 8px 0 var(--pink);transition:.2s;position:relative;
+  }
+  .card:nth-child(odd){transform:rotate(-1.8deg)}
+  .card:nth-child(even){transform:rotate(1.6deg);box-shadow:8px 8px 0 var(--acid)}
+  .card:hover{transform:rotate(0) scale(1.05);z-index:3}
+  .card .ico{font-size:3rem;filter:grayscale(1) contrast(2)}
+  .card h3{font-family:var(--f-dirt);font-size:2rem;text-transform:uppercase;margin:.4rem 0}
+  .card p{font-size:.95rem}
+  .card .tag{
+    position:absolute;top:-14px;right:-10px;background:var(--red);color:#fff;font-family:var(--f-hand);
+    font-size:1.3rem;padding:0 .6rem;transform:rotate(6deg)
+  }
 
-/* админка */
-.admin{margin-top:30px;border:3px dashed var(--yellow);padding:22px}
-.admin h3{font-family:Impact,sans-serif;color:var(--yellow);text-transform:uppercase;font-size:26px;margin-bottom:14px}
-.admin form,.admin .login{display:grid;gap:12px;max-width:520px}
-input{background:var(--paper);border:3px solid #000;color:#000;padding:12px;font-family:inherit;font-size:15px;
-  box-shadow:4px 4px 0 var(--red);width:100%}
-.btn{background:var(--red);color:#fff;border:3px solid #fff;padding:12px 26px;font-family:Impact,sans-serif;
-  font-size:20px;text-transform:uppercase;cursor:pointer;box-shadow:5px 5px 0 #000;justify-self:start}
-.btn:hover{background:var(--yellow);color:#000}
-.msg{min-height:20px;color:var(--yellow);font-size:14px}
-.hidden{display:none}
-.lock{background:none;border:none;color:#666;font-family:inherit;cursor:pointer;margin-top:24px;
-  text-decoration:underline;font-size:13px}
+  /* ---------- АФИША ---------- */
+  .poster{
+    background:var(--acid);color:var(--black);padding:2rem;border:6px solid var(--black);
+    box-shadow:0 0 0 6px var(--acid),12px 12px 0 6px var(--pink);
+    transform:rotate(-1deg);
+  }
+  .gig{display:grid;grid-template-columns:110px 1fr auto;gap:1rem;align-items:center;padding:1rem 0;border-bottom:3px dashed var(--black)}
+  .gig:last-child{border:0}
+  .date{font-family:var(--f-spray);font-size:1.8rem;line-height:1}
+  .date small{display:block;font-family:var(--f-cond);font-size:1rem}
+  .gig h4{font-family:var(--f-cond);font-size:1.7rem;text-transform:uppercase;line-height:1.1}
+  .gig p{font-size:.9rem}
+  .price{background:var(--black);color:var(--acid);padding:.3rem .8rem;font-family:var(--f-cond);font-weight:700;transform:rotate(3deg);white-space:nowrap}
+  @media(max-width:620px){.gig{grid-template-columns:1fr}.badge{width:100px;height:100px;font-size:1rem}.anarchy{font-size:4rem}}
 
-footer{background:#000;border-top:6px solid var(--red);text-align:center;padding:50px 20px;color:#888;
-  font-size:12px;letter-spacing:.2em;text-transform:uppercase}
-footer .big{font-family:Impact,sans-serif;font-size:clamp(40px,12vw,150px);color:transparent;
-  -webkit-text-stroke:2px #fafafa;margin-bottom:14px}
-@media(max-width:700px){nav .links{display:none}}
+  /* ---------- ПЛЕЕР ---------- */
+  .player{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;align-items:start}
+  .tracks{list-style:none;border:3px solid var(--paper);background:#111}
+  .tracks li{
+    padding:.8rem 1rem;border-bottom:2px dotted #555;display:flex;justify-content:space-between;gap:1rem;cursor:pointer;
+    font-family:var(--f-cond);font-size:1.2rem;text-transform:uppercase;transition:.1s;
+  }
+  .tracks li:hover{background:var(--pink);color:var(--black)}
+  .tracks li.on{background:var(--acid);color:var(--black)}
+  .eq{display:none;gap:3px;align-items:flex-end;height:20px}
+  .tracks li.on .eq{display:flex}
+  .eq i{width:5px;background:var(--black);animation:eq .5s infinite alternate}
+  .eq i:nth-child(2){animation-delay:.15s}.eq i:nth-child(3){animation-delay:.3s}.eq i:nth-child(4){animation-delay:.1s}
+  @keyframes eq{from{height:3px}to{height:20px}}
+  .amp{background:#151515;border:4px solid var(--paper);padding:1.5rem;text-align:center}
+  .amp p{font-family:var(--f-hand);font-size:1.7rem;color:var(--pink);margin-bottom:1rem}
+  .knobs{display:flex;justify-content:center;gap:1rem;margin-bottom:1.2rem}
+  .knobs div{width:44px;height:44px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#666,#111);border:3px solid var(--acid);position:relative}
+  .knobs div::after{content:"";position:absolute;left:50%;top:3px;width:3px;height:14px;background:var(--acid);transform:translateX(-50%)}
+  .knobs div:nth-child(2){transform:rotate(80deg)}.knobs div:nth-child(3){transform:rotate(-50deg)}.knobs div:nth-child(4){transform:rotate(140deg)}
+
+  /* ---------- DIY ---------- */
+  .steps{counter-reset:s;display:grid;gap:1.5rem}
+  .steps li{
+    list-style:none;counter-increment:s;background:var(--paper);color:var(--black);padding:1.2rem 1.2rem 1.2rem 5rem;position:relative;
+    border-left:10px solid var(--red);font-size:1.05rem
+  }
+  .steps li::before{
+    content:counter(s);position:absolute;left:1rem;top:50%;transform:translateY(-50%) rotate(-8deg);
+    font-family:var(--f-spray);font-size:3rem;color:var(--pink);-webkit-text-stroke:2px var(--black)
+  }
+  .steps li:nth-child(even){transform:translateX(18px)}
+
+  /* ---------- ГОСТЕВАЯ ---------- */
+  form{display:grid;gap:1rem;max-width:600px}
+  input,textarea{
+    background:var(--paper);color:var(--black);border:4px solid var(--black);padding:.8rem;font-family:var(--f-mono);font-size:1rem;
+    outline:none;box-shadow:5px 5px 0 var(--acid)
+  }
+  input:focus,textarea:focus{box-shadow:5px 5px 0 var(--pink)}
+  .wall{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
+  .note{background:#ffef62;color:var(--black);padding:1rem;font-family:var(--f-hand);font-size:1.4rem;line-height:1.2;box-shadow:4px 6px 0 rgba(0,0,0,.6);transform:rotate(var(--r))}
+  .note b{display:block;font-family:var(--f-cond);font-size:1rem;text-transform:uppercase;margin-bottom:.3rem;border-bottom:2px solid #000}
+
+  footer{
+    text-align:center;padding:3rem 1rem 4rem;border-top:4px dashed var(--pink);margin-top:3rem;
+    font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.15em
+  }
+  footer .big{font-family:var(--f-spray);font-size:clamp(2rem,8vw,5rem);color:var(--red);display:block;margin-bottom:.5rem}
+
+  /* эффект клика */
+  .splat{
+    position:fixed;pointer-events:none;z-index:1000;font-size:2rem;font-weight:900;
+    animation:splat 1s forwards;
+  }
+  @keyframes splat{
+    from{opacity:1;transform:translate(-50%,-50%) scale(.4) rotate(0)}
+    to{opacity:0;transform:translate(-50%,-150%) scale(1.8) rotate(40deg)}
+  }
 </style>
 </head>
 <body>
 
 <nav>
-  <a href="#top" class="logo imp">CRY<b>✖</b>SQUAD</a>
-  <div class="links"><a class="l" href="#about">манифест</a><a class="l" href="#tracks">треки</a></div>
+  <a href="#top" class="logo">НЕФОР.ЗОНА</a>
+  <ul>
+    <li><a class="l" href="#manifest">Манифест</a></li>
+    <li><a class="l" href="#tribes">Движ</a></li>
+    <li><a class="l" href="#gigs">Афиша</a></li>
+    <li><a class="l" href="#music">Звук</a></li>
+    <li><a class="l" href="#diy">DIY</a></li>
+    <li><a class="l" href="#wall">Стена</a></li>
+  </ul>
 </nav>
 
 <header class="hero" id="top">
-  <div class="ransom"><span>C</span><span>R</span><span>Y</span><span>S</span><span>Q</span><span>U</span><span>A</span><span>D</span></div>
-  <div class="tag">мы не «субкультура». мы те, кто орёт, когда все молчат.</div>
+  <div class="badge">DIY<br>OR<br>DIE</div>
+  <div class="anarchy">Ⓐ</div>
+  <h1 class="glitch">Не<br>формат</h1>
+  <p class="hand">// играй громко, живи по-своему //</p>
+  <div class="btns">
+    <a href="#manifest" class="btn">Читать манифест</a>
+    <a href="#gigs" class="btn alt">Где тусим</a>
+  </div>
 </header>
 
-<div class="tape"><div><span>CRYSQUAD ✖ ПАНК НЕ МЁРТВ ✖ CRYSQUAD ✖ СВОИХ НЕ БРОСАЕМ ✖ CRYSQUAD ✖ ПАНК НЕ МЁРТВ ✖ CRYSQUAD ✖ СВОИХ НЕ БРОСАЕМ ✖ CRYSQUAD ✖ ПАНК НЕ МЁРТВ ✖ CRYSQUAD ✖ СВОИХ НЕ БРОСАЕМ ✖</span></div></div>
+<div class="tape"><span>★ НЕ ПОКОРЯЙСЯ ★ ДЕЛАЙ САМ ★ ГРОМКО ИЛИ НИКАК ★ ПАНК НЕ УМЕР ★ НЕ ПОКОРЯЙСЯ ★ ДЕЛАЙ САМ ★ ГРОМКО ИЛИ НИКАК ★ ПАНК НЕ УМЕР ★</span></div>
+<div class="tape b"><span>⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡</span></div>
 
-<section id="about">
-  <h2><span>Мани</span><em>фест</em></h2>
+<section id="manifest">
+  <h2>Манифест</h2>
   <div class="paper">
-    <p>Чёрные шмотки, берцы, булавки в куртке и плеер с кассетой. <mark>Мы не вписываемся</mark> и не собираемся.</p>
-    <p>Гаражные репетиции, самиздат и концерты в подвалах, где пол липкий, а звук громкий.</p>
-    <p>Нас не показывают по телеку. <mark>Нам и не надо.</mark></p>
-  </div>
-  <div class="patches">
-    <div class="patch"><h3>NOVA</h3><small>вокал / тексты</small></div>
-    <div class="patch"><h3>GLITCH</h3><small>гитара / шум</small></div>
-    <div class="patch"><h3>ICE</h3><small>зины / визуал</small></div>
+    <div class="tape-piece"></div>
+    <div class="ransom" data-ransom>ХВАТИТ ЖИТЬ ПО ШАБЛОНУ</div>
+    <p>Мы — те, кого не взяли в «нормальные». И слава богу. У нас <b>рваные джинсы</b>, тяжёлые ботинки, значки на рюкзаках и плейлисты, от которых соседи стучат по батарее.</p>
+    <p>Нам не нужен <span class="mark">дресс-код</span>, чтобы быть собой. Нам не нужно разрешение, чтобы взять гитару, краску или камеру. Не умеешь? <b>Научишься по ходу.</b> Три аккорда — уже группа.</p>
+    <p>Эта страница — как фэнзин, склеенный на коленке: без глянца, без фильтров и без правил. Берёшь — переделываешь — передаёшь дальше.</p>
   </div>
 </section>
 
-<section id="tracks">
-  <h2><span>Тре</span><em>ки</em></h2>
-  <div class="tracks" id="list"><div class="empty">загружаю...</div></div>
+<section id="tribes">
+  <h2>Кто тут кто</h2>
+  <div class="grid">
+    <div class="card"><span class="tag">громко!</span><div class="ico">🤘</div><h3>Металлисты</h3><p>Чёрное, кожа, заклёпки и риффы тяжелее асфальта. Хедбенгинг — это не хобби, а образ жизни.</p></div>
+    <div class="card"><span class="tag">Ⓐ</span><div class="ico">☠️</div><h3>Панки</h3><p>Ирокез, булавки, нашивки и три аккорда. Быстро, грубо, честно. Против всех, но за своих.</p></div>
+    <div class="card"><span class="tag">ночь</span><div class="ico">🦇</div><h3>Готы</h3><p>Чёрная помада, кладбищенская эстетика, поэзия и постпанк. Красота в тени.</p></div>
+    <div class="card"><span class="tag">ноет</span><div class="ico">🖤</div><h3>Эмо</h3><p>Чёлка на пол-лица, полосатые гетры и чувства на максимум. Да, мы плачем под музыку. И что?</p></div>
+    <div class="card"><span class="tag">дорога</span><div class="ico">🏍️</div><h3>Рокеры</h3><p>Косуха, ветер, мотор и старый добрый рок-н-ролл. Свобода измеряется километрами.</p></div>
+    <div class="card"><span class="tag">гараж</span><div class="ico">🎸</div><h3>Гранж</h3><p>Растянутые свитера, клетчатые рубашки и грязный фузз. Всё как у Курта.</p></div>
+  </div>
+</section>
 
-  <button class="lock" id="lockBtn">вход для админа</button>
-
-  <div class="admin hidden" id="loginBox">
-    <h3>Вход</h3>
-    <div class="login">
-      <input type="password" id="pw" placeholder="пароль">
-      <button class="btn" id="loginBtn">войти</button>
-      <div class="msg" id="loginMsg"></div>
+<section id="gigs">
+  <h2>Афиша движа</h2>
+  <div class="poster">
+    <div class="gig">
+      <div class="date">13<small>ПТ / ПЯТНИЦА</small></div>
+      <div><h4>«Сточные Канавы» + «Ржавый Гвоздь»</h4><p>Подвал на Заводской, 5. Начало в 20:00. Пиво своё.</p></div>
+      <div class="price">300 ₽</div>
+    </div>
+    <div class="gig">
+      <div class="date">21<small>СБ / СУББОТА</small></div>
+      <div><h4>Гаражный фест «Громче!»</h4><p>Старый гараж за рынком. 8 групп, мерч, обмен нашивками.</p></div>
+      <div class="price">500 ₽</div>
+    </div>
+    <div class="gig">
+      <div class="date">28<small>СБ / СУББОТА</small></div>
+      <div><h4>Чёрная месса: постпанк-вечер</h4><p>Клуб «Склеп». Дресс-код: чёрный. Вход со свечой.</p></div>
+      <div class="price">донат</div>
     </div>
   </div>
+</section>
 
-  <div class="admin hidden" id="uploadBox">
-    <h3>Загрузить трек</h3>
-    <form id="upForm">
-      <input id="title" placeholder="название трека" maxlength="100">
-      <input type="file" id="file" accept=".mp3,.wav,.ogg,.flac,.m4a,.aac,audio/*" required>
-      <button class="btn">загрузить ✖</button>
-      <div class="msg" id="upMsg"></div>
-    </form>
-    <button class="lock" id="logoutBtn">выйти</button>
+<section id="music">
+  <h2>Звук</h2>
+  <div class="player">
+    <ul class="tracks" id="tracks">
+      <li>01. Нам плевать <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>02. Подвальный блюз <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>03. Ржавые цепи <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>04. Чёрная вуаль <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>05. Последний автобус <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>06. Дай мне громкость <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+    </ul>
+    <div class="amp">
+      <p>нет гитары? держи виртуальную</p>
+      <div class="knobs"><div></div><div></div><div></div><div></div></div>
+      <button class="btn" id="chord">🔊 Дать аккорд</button>
+    </div>
   </div>
+</section>
+
+<section id="diy">
+  <h2>Сделай сам</h2>
+  <ol class="steps">
+    <li><b>Нашивка из старой джинсы.</b> Вырежи кусок ткани, нарисуй логотип группы белой краской или корректором.</li>
+    <li><b>Закрепи.</b> Пришей грубыми стежками чёрной ниткой. Криво — значит, аутентично.</li>
+    <li><b>Добавь булавки.</b> Пара английских булавок на лацкан — и ты уже в теме.</li>
+    <li><b>Напечатай фэнзин.</b> Ножницы, клей, ксерокс — и вот твой журнал. Раздай друзьям.</li>
+  </ol>
+</section>
+
+<section id="wall">
+  <h2>Стена</h2>
+  <form id="form">
+    <input id="name" placeholder="Твоё погоняло" maxlength="24" required>
+    <textarea id="msg" rows="3" placeholder="Напиши что-нибудь на стене..." maxlength="140" required></textarea>
+    <button class="btn" type="submit">Прилепить стикер</button>
+  </form>
+  <div class="wall" id="wallList"></div>
 </section>
 
 <footer>
-  <div class="big">NO FUTURE</div>
-  <p>© 2025 CRYSQUAD · сделано дома, без разрешения</p>
+  <span class="big">NO FUTURE?</span>
+  Будущее — это то, что мы делаем сами. © Нефор.Зона, без прав и без правил.
 </footer>
 
 <script>
-var $ = function (s) { return document.querySelector(s); };
-var pass = sessionStorage.getItem('pw') || '';
-var isAdmin = false;
+  // 1. Записка из вырезанных букв
+  document.querySelectorAll('[data-ransom]').forEach(el=>{
+    const text = el.textContent; el.textContent='';
+    const bgs=['#000','#c6ff00','#ff2e88','#fff','#e10600','#ffef62'];
+    const fonts=["'Rubik Dirt'","'Oswald'","'IBM Plex Mono'","'Rubik Spray Paint'","'Caveat'"];
+    [...text].forEach(ch=>{
+      if(ch===' '){el.appendChild(document.createTextNode(' '));return}
+      const s=document.createElement('span');
+      const bg=bgs[Math.random()*bgs.length|0];
+      s.textContent=ch;
+      s.style.background=bg;
+      s.style.color=(bg==='#000'||bg==='#e10600')?'#fff':'#000';
+      s.style.fontFamily=fonts[Math.random()*fonts.length|0];
+      s.style.transform=`rotate(${(Math.random()*14-7).toFixed(1)}deg)`;
+      s.style.fontSize=(0.9+Math.random()*0.5).toFixed(2)+'em';
+      el.appendChild(s);
+    });
+  });
 
-function hdr() { return { 'x-admin-password': pass }; }
+  // 2. Клик — разлетаются символы
+  const sym=['✖','☠','Ⓐ','★','⚡','✌','♥'];
+  const col=['#c6ff00','#ff2e88','#e10600','#fff'];
+  document.addEventListener('click',e=>{
+    const s=document.createElement('div');
+    s.className='splat';
+    s.textContent=sym[Math.random()*sym.length|0];
+    s.style.left=e.clientX+'px'; s.style.top=e.clientY+'px';
+    s.style.color=col[Math.random()*col.length|0];
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),1000);
+  });
 
-function loadTracks() {
-  fetch('/api/tracks').then(function (r) { return r.json(); }).then(render)
-    .catch(function () { $('#list').textContent = 'не удалось загрузить список'; });
-}
+  // 3. Плейлист
+  document.querySelectorAll('#tracks li').forEach(li=>{
+    li.addEventListener('click',()=>{
+      const was=li.classList.contains('on');
+      document.querySelectorAll('#tracks li').forEach(x=>x.classList.remove('on'));
+      if(!was) li.classList.add('on');
+    });
+  });
 
-function render(list) {
-  var box = $('#list');
-  box.textContent = '';
-  if (!list.length) {
-    var e = document.createElement('div');
-    e.className = 'empty'; e.textContent = 'пока пусто...';
-    box.appendChild(e);
-    return;
+  // 4. Гитарный пауэр-аккорд через WebAudio
+  let ctx;
+  document.getElementById('chord').addEventListener('click',()=>{
+    ctx = ctx || new (window.AudioContext||window.webkitAudioContext)();
+    const roots=[82.41,87.31,98,110,73.42];
+    const r=roots[Math.random()*roots.length|0];
+    const freqs=[r,r*1.4983,r*2,r*3];
+    const shaper=ctx.createWaveShaper();
+    const k=200,n=44100,curve=new Float32Array(n);
+    for(let i=0;i<n;i++){const x=i*2/n-1;curve[i]=(3+k)*x*20*(Math.PI/180)/(Math.PI+k*Math.abs(x))}
+    shaper.curve=curve;
+    const gain=ctx.createGain();
+    gain.gain.setValueAtTime(0.0001,ctx.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.35,ctx.currentTime+0.02);
+    gain.gain.exponentialRampToValueAtTime(0.0001,ctx.currentTime+1.8);
+    shaper.connect(gain).connect(ctx.destination);
+    freqs.forEach(f=>{
+      const o=ctx.createOscillator();
+      o.type='sawtooth'; o.frequency.value=f;
+      o.detune.value=Math.random()*10-5;
+      o.connect(shaper); o.start(); o.stop(ctx.currentTime+1.9);
+    });
+  });
+
+  // 5. Стена (localStorage)
+  const list=document.getElementById('wallList');
+  const KEY='nefor_wall';
+  const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  let notes=JSON.parse(localStorage.getItem(KEY)||'null')||[
+    {n:'Сид',m:'Панк-рок не умер, он просто в гараже репетирует.',r:-3},
+    {n:'Ночная_Ворона',m:'Кто на пятницу в подвал? Свечи беру я.',r:2},
+    {n:'Гриша Эмо',m:'Чёлка — это броня.',r:-1}
+  ];
+  function render(){
+    list.innerHTML=notes.map(x=>`<div class="note" style="--r:${x.r}deg"><b>${esc(x.n)}</b>${esc(x.m)}</div>`).join('');
   }
-  list.forEach(function (t, i) {
-    var row = document.createElement('div'); row.className = 'track';
-    var n = document.createElement('span'); n.className = 'n'; n.textContent = String(i + 1).padStart(2, '0');
-    var title = document.createElement('span'); title.className = 't'; title.textContent = t.title;
-    var audio = document.createElement('audio'); audio.controls = true; audio.preload = 'none';
-    audio.src = '/uploads/' + encodeURIComponent(t.file);
-    row.appendChild(n); row.appendChild(title); row.appendChild(audio);
-    if (isAdmin) {
-      var del = document.createElement('button'); del.className = 'del'; del.textContent = 'удалить';
-      del.onclick = function () {
-        if (!confirm('Удалить «' + t.title + '»?')) return;
-        fetch('/api/tracks/' + t.id, { method: 'DELETE', headers: hdr() }).then(loadTracks);
-      };
-      row.appendChild(del);
-    }
-    box.appendChild(row);
+  render();
+  document.getElementById('form').addEventListener('submit',e=>{
+    e.preventDefault();
+    notes.unshift({n:name.value.trim(),m:msg.value.trim(),r:+(Math.random()*8-4).toFixed(1)});
+    notes=notes.slice(0,30);
+    localStorage.setItem(KEY,JSON.stringify(notes));
+    render(); e.target.reset();
   });
-}
-
-function setAdmin(on) {
-  isAdmin = on;
-  $('#uploadBox').classList.toggle('hidden', !on);
-  $('#loginBox').classList.add('hidden');
-  $('#lockBtn').classList.toggle('hidden', on);
-  loadTracks();
-}
-
-$('#lockBtn').onclick = function () { $('#loginBox').classList.toggle('hidden'); };
-
-$('#loginBtn').onclick = function () {
-  pass = $('#pw').value;
-  $('#loginMsg').textContent = 'проверяю...';
-  fetch('/api/check', { headers: hdr() }).then(function (r) {
-    if (r.ok) { sessionStorage.setItem('pw', pass); $('#loginMsg').textContent = ''; setAdmin(true); }
-    else { pass = ''; $('#loginMsg').textContent = 'неверный пароль'; }
-  });
-};
-
-$('#logoutBtn').onclick = function () { pass = ''; sessionStorage.removeItem('pw'); setAdmin(false); };
-
-$('#upForm').onsubmit = function (e) {
-  e.preventDefault();
-  var f = $('#file').files[0];
-  if (!f) return;
-  var fd = new FormData();
-  fd.append('title', $('#title').value || f.name.replace(/\.[^.]+$/, ''));
-  fd.append('file', f);
-  $('#upMsg').textContent = 'загружаю...';
-  fetch('/api/tracks', { method: 'POST', headers: hdr(), body: fd })
-    .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
-    .then(function (res) {
-      if (res.ok) { $('#upMsg').textContent = 'готово ✖'; $('#upForm').reset(); loadTracks(); }
-      else $('#upMsg').textContent = res.d.error || 'ошибка';
-    })
-    .catch(function () { $('#upMsg').textContent = 'ошибка сети'; });
-};
-
-// если пароль уже сохранён в этой вкладке
-if (pass) {
-  fetch('/api/check', { headers: hdr() }).then(function (r) { setAdmin(r.ok); if (!r.ok) pass = ''; });
-} else {
-  loadTracks();
-}
 </script>
 </body>
 </html>
