@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>НЕФОР.ЗОНА — не по правилам</title>
+<title>НЕФОР.ЗОНА — готы и эмо</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik+Spray+Paint&family=Rubik+Glitch&family=Oswald:wght@400;700&family=Caveat:wght@700&family=IBM+Plex+Mono:wght@400;700&family=Rubik+Dirt&display=swap" rel="stylesheet">
@@ -11,9 +11,9 @@
   :root{
     --black:#0b0b0b;
     --paper:#e8e4d8;
-    --acid:#c6ff00;
+    --acid:#c77dff;   /* фиолетовый */
     --pink:#ff2e88;
-    --red:#e10600;
+    --red:#8b0020;    /* бордовый */
     --f-spray:'Rubik Spray Paint','Impact',sans-serif;
     --f-dirt:'Rubik Dirt','Impact',sans-serif;
     --f-cond:'Oswald','Arial Narrow',sans-serif;
@@ -57,7 +57,7 @@
     text-align:center;padding:3rem 1rem 6rem;overflow:hidden;
     background:
       radial-gradient(circle at 20% 20%,rgba(255,46,136,.25),transparent 40%),
-      radial-gradient(circle at 80% 70%,rgba(198,255,0,.18),transparent 40%),
+      radial-gradient(circle at 80% 70%,rgba(199,125,255,.2),transparent 40%),
       repeating-linear-gradient(45deg,#0b0b0b 0 14px,#101010 14px 28px);
   }
   .glitch{
@@ -127,10 +127,11 @@
   .paper .mark{background:var(--pink);padding:0 .25rem;color:var(--black)}
   .ransom{font-family:var(--f-cond);font-size:clamp(1.6rem,5vw,3rem);margin-bottom:1.5rem;line-height:1.5}
   .ransom span{display:inline-block;padding:0 .25rem;margin:0 1px;border:1px solid #000}
-  .tape-piece{position:absolute;top:-6px;left:40%;width:120px;height:32px;background:rgba(198,255,0,.7);transform:rotate(-4deg)}
+  .tape-piece{position:absolute;top:-6px;left:40%;width:120px;height:32px;background:rgba(199,125,255,.7);transform:rotate(-4deg)}
 
-  /* ---------- ТУСОВКИ ---------- */
+  /* ---------- КТО ТУТ КТО ---------- */
   .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:2rem}
+  .grid.two{grid-template-columns:repeat(auto-fit,minmax(260px,420px));justify-content:center}
   .card{
     background:var(--paper);color:var(--black);padding:1.4rem;border:4px solid var(--black);
     box-shadow:8px 8px 0 var(--pink);transition:.2s;position:relative;
@@ -194,7 +195,7 @@
   }
   .steps li:nth-child(even){transform:translateX(18px)}
 
-  /* ---------- ГОСТЕВАЯ ---------- */
+  /* ---------- СТЕНА ---------- */
   form{display:grid;gap:1rem;max-width:600px}
   input,textarea{
     background:var(--paper);color:var(--black);border:4px solid var(--black);padding:.8rem;font-family:var(--f-mono);font-size:1rem;
@@ -202,14 +203,14 @@
   }
   input:focus,textarea:focus{box-shadow:5px 5px 0 var(--pink)}
   .wall{margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.4rem}
-  .note{background:#ffef62;color:var(--black);padding:1rem;font-family:var(--f-hand);font-size:1.4rem;line-height:1.2;box-shadow:4px 6px 0 rgba(0,0,0,.6);transform:rotate(var(--r))}
+  .note{background:#ffd6ec;color:var(--black);padding:1rem;font-family:var(--f-hand);font-size:1.4rem;line-height:1.2;box-shadow:4px 6px 0 rgba(0,0,0,.6);transform:rotate(var(--r))}
   .note b{display:block;font-family:var(--f-cond);font-size:1rem;text-transform:uppercase;margin-bottom:.3rem;border-bottom:2px solid #000}
 
   footer{
     text-align:center;padding:3rem 1rem 4rem;border-top:4px dashed var(--pink);margin-top:3rem;
     font-family:var(--f-cond);text-transform:uppercase;letter-spacing:.15em
   }
-  footer .big{font-family:var(--f-spray);font-size:clamp(2rem,8vw,5rem);color:var(--red);display:block;margin-bottom:.5rem}
+  footer .big{font-family:var(--f-spray);font-size:clamp(2rem,8vw,5rem);color:var(--pink);display:block;margin-bottom:.5rem}
 
   /* эффект клика */
   .splat{
@@ -228,7 +229,7 @@
   <a href="#top" class="logo">НЕФОР.ЗОНА</a>
   <ul>
     <li><a class="l" href="#manifest">Манифест</a></li>
-    <li><a class="l" href="#tribes">Движ</a></li>
+    <li><a class="l" href="#tribes">Кто тут кто</a></li>
     <li><a class="l" href="#gigs">Афиша</a></li>
     <li><a class="l" href="#music">Звук</a></li>
     <li><a class="l" href="#diy">DIY</a></li>
@@ -237,17 +238,17 @@
 </nav>
 
 <header class="hero" id="top">
-  <div class="badge">DIY<br>OR<br>DIE</div>
-  <div class="anarchy">Ⓐ</div>
+  <div class="badge">DARK<br>&amp;<br>EMO</div>
+  <div class="anarchy">🦇</div>
   <h1 class="glitch">Не<br>формат</h1>
-  <p class="hand">// играй громко, живи по-своему //</p>
+  <p class="hand">// чувствуй громко, живи по-своему //</p>
   <div class="btns">
     <a href="#manifest" class="btn">Читать манифест</a>
     <a href="#gigs" class="btn alt">Где тусим</a>
   </div>
 </header>
 
-<div class="tape"><span>★ НЕ ПОКОРЯЙСЯ ★ ДЕЛАЙ САМ ★ ГРОМКО ИЛИ НИКАК ★ ПАНК НЕ УМЕР ★ НЕ ПОКОРЯЙСЯ ★ ДЕЛАЙ САМ ★ ГРОМКО ИЛИ НИКАК ★ ПАНК НЕ УМЕР ★</span></div>
+<div class="tape"><span>★ НЕ ПОКОРЯЙСЯ ★ БУДЬ СОБОЙ ★ ТЬМА — ЭТО КРАСИВО ★ ГОТЫ НЕ УМИРАЮТ ★ НЕ ПОКОРЯЙСЯ ★ БУДЬ СОБОЙ ★ ТЬМА — ЭТО КРАСИВО ★ ГОТЫ НЕ УМИРАЮТ ★</span></div>
 <div class="tape b"><span>⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡ ЭТО НЕ МОДА, ЭТО СПОСОБ ДЫШАТЬ ⚡</span></div>
 
 <section id="manifest">
@@ -255,40 +256,46 @@
   <div class="paper">
     <div class="tape-piece"></div>
     <div class="ransom" data-ransom>ХВАТИТ ЖИТЬ ПО ШАБЛОНУ</div>
-    <p>Мы — те, кого не взяли в «нормальные». И слава богу. У нас <b>рваные джинсы</b>, тяжёлые ботинки, значки на рюкзаках и плейлисты, от которых соседи стучат по батарее.</p>
-    <p>Нам не нужен <span class="mark">дресс-код</span>, чтобы быть собой. Нам не нужно разрешение, чтобы взять гитару, краску или камеру. Не умеешь? <b>Научишься по ходу.</b> Три аккорда — уже группа.</p>
+    <p>Мы — те, кого не взяли в «нормальные». И слава богу. У нас <b>чёрная подводка</b>, длинные чёлки, значки на рюкзаках и плейлисты, от которых соседи вздыхают за стеной.</p>
+    <p>Нам не нужен <span class="mark">дресс-код</span>, чтобы быть собой. Нам не нужно разрешение, чтобы писать стихи, рисовать или чувствовать. Грустно? <b>Значит, живой.</b></p>
     <p>Эта страница — как фэнзин, склеенный на коленке: без глянца, без фильтров и без правил. Берёшь — переделываешь — передаёшь дальше.</p>
   </div>
 </section>
 
 <section id="tribes">
   <h2>Кто тут кто</h2>
-  <div class="grid">
-    <div class="card"><span class="tag">громко!</span><div class="ico">🤘</div><h3>Металлисты</h3><p>Чёрное, кожа, заклёпки и риффы тяжелее асфальта. Хедбенгинг — это не хобби, а образ жизни.</p></div>
-    <div class="card"><span class="tag">Ⓐ</span><div class="ico">☠️</div><h3>Панки</h3><p>Ирокез, булавки, нашивки и три аккорда. Быстро, грубо, честно. Против всех, но за своих.</p></div>
-    <div class="card"><span class="tag">ночь</span><div class="ico">🦇</div><h3>Готы</h3><p>Чёрная помада, кладбищенская эстетика, поэзия и постпанк. Красота в тени.</p></div>
-    <div class="card"><span class="tag">ноет</span><div class="ico">🖤</div><h3>Эмо</h3><p>Чёлка на пол-лица, полосатые гетры и чувства на максимум. Да, мы плачем под музыку. И что?</p></div>
-    <div class="card"><span class="tag">дорога</span><div class="ico">🏍️</div><h3>Рокеры</h3><p>Косуха, ветер, мотор и старый добрый рок-н-ролл. Свобода измеряется километрами.</p></div>
-    <div class="card"><span class="tag">гараж</span><div class="ico">🎸</div><h3>Гранж</h3><p>Растянутые свитера, клетчатые рубашки и грязный фузз. Всё как у Курта.</p></div>
+  <div class="grid two">
+    <div class="card">
+      <span class="tag">ночь</span>
+      <div class="ico">🦇</div>
+      <h3>Готы</h3>
+      <p>Чёрная помада, кладбищенская эстетика, поэзия и постпанк. Свечи, кружево, бархат и красота в тени. Тёмное — не значит грустное, это просто стиль.</p>
+    </div>
+    <div class="card">
+      <span class="tag">ноет</span>
+      <div class="ico">🖤</div>
+      <h3>Эмо</h3>
+      <p>Чёлка на пол-лица, полосатые гетры, значки и чувства на максимум. Да, мы плачем под музыку. И что?</p>
+    </div>
   </div>
 </section>
 
 <section id="gigs">
-  <h2>Афиша движа</h2>
+  <h2>Афиша</h2>
   <div class="poster">
     <div class="gig">
       <div class="date">13<small>ПТ / ПЯТНИЦА</small></div>
-      <div><h4>«Сточные Канавы» + «Ржавый Гвоздь»</h4><p>Подвал на Заводской, 5. Начало в 20:00. Пиво своё.</p></div>
+      <div><h4>Готик-ночь «Чёрная вуаль»</h4><p>Клуб «Склеп». Постпанк, дарквейв, свечи. Дресс-код: чёрный.</p></div>
       <div class="price">300 ₽</div>
     </div>
     <div class="gig">
       <div class="date">21<small>СБ / СУББОТА</small></div>
-      <div><h4>Гаражный фест «Громче!»</h4><p>Старый гараж за рынком. 8 групп, мерч, обмен нашивками.</p></div>
-      <div class="price">500 ₽</div>
+      <div><h4>Эмо-вечеринка «Слёзы в наушниках»</h4><p>Бар «Чёлка». Поём хором, обмениваемся значками и браслетами.</p></div>
+      <div class="price">400 ₽</div>
     </div>
     <div class="gig">
       <div class="date">28<small>СБ / СУББОТА</small></div>
-      <div><h4>Чёрная месса: постпанк-вечер</h4><p>Клуб «Склеп». Дресс-код: чёрный. Вход со свечой.</p></div>
+      <div><h4>Поэтический вечер при свечах</h4><p>Старая библиотека. Читаем свои стихи. Вход со свечой.</p></div>
       <div class="price">донат</div>
     </div>
   </div>
@@ -298,12 +305,12 @@
   <h2>Звук</h2>
   <div class="player">
     <ul class="tracks" id="tracks">
-      <li>01. Нам плевать <span class="eq"><i></i><i></i><i></i><i></i></span></li>
-      <li>02. Подвальный блюз <span class="eq"><i></i><i></i><i></i><i></i></span></li>
-      <li>03. Ржавые цепи <span class="eq"><i></i><i></i><i></i><i></i></span></li>
-      <li>04. Чёрная вуаль <span class="eq"><i></i><i></i><i></i><i></i></span></li>
-      <li>05. Последний автобус <span class="eq"><i></i><i></i><i></i><i></i></span></li>
-      <li>06. Дай мне громкость <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>01. Чёрная вуаль <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>02. Свечи и дождь <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>03. Полночь на кладбище <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>04. Письма в никуда <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>05. Разбитое сердце <span class="eq"><i></i><i></i><i></i><i></i></span></li>
+      <li>06. Слёзы в наушниках <span class="eq"><i></i><i></i><i></i><i></i></span></li>
     </ul>
     <div class="amp">
       <p>нет гитары? держи виртуальную</p>
@@ -316,9 +323,9 @@
 <section id="diy">
   <h2>Сделай сам</h2>
   <ol class="steps">
-    <li><b>Нашивка из старой джинсы.</b> Вырежи кусок ткани, нарисуй логотип группы белой краской или корректором.</li>
-    <li><b>Закрепи.</b> Пришей грубыми стежками чёрной ниткой. Криво — значит, аутентично.</li>
-    <li><b>Добавь булавки.</b> Пара английских булавок на лацкан — и ты уже в теме.</li>
+    <li><b>Чёрная подводка.</b> Нарисуй стрелки или густо подведи глаза. Чем драматичнее, тем лучше.</li>
+    <li><b>Браслеты и значки.</b> Собери на рюкзак и запястья значки любимых групп, цепочки и фенечки.</li>
+    <li><b>Пиши стихи.</b> Заведи чёрный блокнот и записывай всё, что чувствуешь. Рифма необязательна.</li>
     <li><b>Напечатай фэнзин.</b> Ножницы, клей, ксерокс — и вот твой журнал. Раздай друзьям.</li>
   </ol>
 </section>
@@ -326,23 +333,23 @@
 <section id="wall">
   <h2>Стена</h2>
   <form id="form">
-    <input id="name" placeholder="Твоё погоняло" maxlength="24" required>
-    <textarea id="msg" rows="3" placeholder="Напиши что-нибудь на стене..." maxlength="140" required></textarea>
+    <input id="uname" placeholder="Твой ник" maxlength="24" required>
+    <textarea id="umsg" rows="3" placeholder="Напиши что-нибудь на стене..." maxlength="140" required></textarea>
     <button class="btn" type="submit">Прилепить стикер</button>
   </form>
   <div class="wall" id="wallList"></div>
 </section>
 
 <footer>
-  <span class="big">NO FUTURE?</span>
-  Будущее — это то, что мы делаем сами. © Нефор.Зона, без прав и без правил.
+  <span class="big">NEVERMORE</span>
+  Тьма — это тоже красота. © Нефор.Зона, без прав и без правил.
 </footer>
 
 <script>
   // 1. Записка из вырезанных букв
   document.querySelectorAll('[data-ransom]').forEach(el=>{
     const text = el.textContent; el.textContent='';
-    const bgs=['#000','#c6ff00','#ff2e88','#fff','#e10600','#ffef62'];
+    const bgs=['#000','#c77dff','#ff2e88','#fff','#8b0020','#ffd6ec'];
     const fonts=["'Rubik Dirt'","'Oswald'","'IBM Plex Mono'","'Rubik Spray Paint'","'Caveat'"];
     [...text].forEach(ch=>{
       if(ch===' '){el.appendChild(document.createTextNode(' '));return}
@@ -350,7 +357,7 @@
       const bg=bgs[Math.random()*bgs.length|0];
       s.textContent=ch;
       s.style.background=bg;
-      s.style.color=(bg==='#000'||bg==='#e10600')?'#fff':'#000';
+      s.style.color=(bg==='#000'||bg==='#8b0020')?'#fff':'#000';
       s.style.fontFamily=fonts[Math.random()*fonts.length|0];
       s.style.transform=`rotate(${(Math.random()*14-7).toFixed(1)}deg)`;
       s.style.fontSize=(0.9+Math.random()*0.5).toFixed(2)+'em';
@@ -359,8 +366,8 @@
   });
 
   // 2. Клик — разлетаются символы
-  const sym=['✖','☠','Ⓐ','★','⚡','✌','♥'];
-  const col=['#c6ff00','#ff2e88','#e10600','#fff'];
+  const sym=['🦇','🖤','✝','★','☠','♥'];
+  const col=['#c77dff','#ff2e88','#8b0020','#fff'];
   document.addEventListener('click',e=>{
     const s=document.createElement('div');
     s.className='splat';
@@ -380,7 +387,7 @@
     });
   });
 
-  // 4. Гитарный пауэр-аккорд через WebAudio
+  // 4. Гитарный аккорд через WebAudio
   let ctx;
   document.getElementById('chord').addEventListener('click',()=>{
     ctx = ctx || new (window.AudioContext||window.webkitAudioContext)();
@@ -409,8 +416,8 @@
   const KEY='nefor_wall';
   const esc=s=>s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let notes=JSON.parse(localStorage.getItem(KEY)||'null')||[
-    {n:'Сид',m:'Панк-рок не умер, он просто в гараже репетирует.',r:-3},
-    {n:'Ночная_Ворона',m:'Кто на пятницу в подвал? Свечи беру я.',r:2},
+    {n:'Мрачная_Лилия',m:'Чёрный — это не цвет, это состояние души.',r:-3},
+    {n:'Ночная_Ворона',m:'Кто на пятницу в «Склеп»? Свечи беру я.',r:2},
     {n:'Гриша Эмо',m:'Чёлка — это броня.',r:-1}
   ];
   function render(){
@@ -419,7 +426,9 @@
   render();
   document.getElementById('form').addEventListener('submit',e=>{
     e.preventDefault();
-    notes.unshift({n:name.value.trim(),m:msg.value.trim(),r:+(Math.random()*8-4).toFixed(1)});
+    const n=document.getElementById('uname');
+    const m=document.getElementById('umsg');
+    notes.unshift({n:n.value.trim(),m:m.value.trim(),r:+(Math.random()*8-4).toFixed(1)});
     notes=notes.slice(0,30);
     localStorage.setItem(KEY,JSON.stringify(notes));
     render(); e.target.reset();
