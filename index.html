@@ -3,142 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CRYSQUAD</title>
+<title>CRYSQUAD // нефор</title>
 <style>
-:root{--acid:#c6ff00;--pink:#ff2bd6;--ice:#7df9ff}
-*{box-sizing:border-box;margin:0;padding:0}
-body{background:#050505;color:#f2f2f2;font-family:"Courier New",monospace;overflow-x:hidden}
-a{color:inherit;text-decoration:none}
-
-nav{position:fixed;top:0;left:0;right:0;z-index:10;display:flex;justify-content:space-between;
-  padding:16px 28px;background:rgba(5,5,5,.8);border-bottom:1px solid #333;text-transform:uppercase;font-weight:700}
-nav ul{display:flex;gap:20px;list-style:none}
-nav a:hover{color:var(--acid)}
-
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:100px 20px;position:relative;overflow:hidden;
-  background:radial-gradient(circle at 20% 30%,rgba(255,43,214,.3),transparent 45%),
-             radial-gradient(circle at 80% 70%,rgba(198,255,0,.2),transparent 45%)}
-.hero h1{font-family:Impact,"Arial Black",sans-serif;font-size:clamp(56px,15vw,200px);line-height:.9;
-  color:#fff;letter-spacing:-.03em;text-shadow:4px 0 var(--pink),-4px 0 var(--ice);animation:glitch 2s infinite steps(1)}
-@keyframes glitch{
-  0%,100%{text-shadow:4px 0 var(--pink),-4px 0 var(--ice)}
-  20%{text-shadow:-6px 2px var(--pink),6px -2px var(--ice);transform:translateX(3px)}
-  40%{text-shadow:3px -3px var(--pink),-3px 3px var(--ice)}
-  60%{text-shadow:-4px 0 var(--pink),4px 0 var(--ice);transform:translateX(-3px)}
-  80%{text-shadow:2px 2px var(--pink),-2px -2px var(--ice)}
+:root{
+  --black:#0d0d0d; --paper:#e9e3d1; --red:#d6001c; --yellow:#ffe600; --white:#fafafa;
 }
-.hero p{margin-top:20px;color:var(--acid);letter-spacing:.2em;text-transform:uppercase}
-.btn{display:inline-block;margin-top:32px;padding:16px 34px;border:2px solid var(--acid);color:var(--acid);
-  font-weight:700;text-transform:uppercase;box-shadow:6px 6px 0 var(--pink);transition:.15s;background:none;
-  font-family:inherit;font-size:14px;cursor:pointer}
-.btn:hover{transform:translate(6px,6px);box-shadow:none;background:var(--acid);color:#000}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background-color:#111;
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .08 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  color:var(--white);
+  font-family:"Courier New",Courier,monospace;
+  overflow-x:hidden;
+  cursor:crosshair;
+}
+a{color:inherit;text-decoration:none}
+.hand{font-family:"Segoe Print","Bradley Hand","Comic Sans MS",cursive}
+.imp{font-family:Impact,"Arial Black","Haettenschweiler",sans-serif;text-transform:uppercase}
 
-.crystal{position:absolute;width:var(--s);height:calc(var(--s)*1.6);
-  background:linear-gradient(135deg,#fff,var(--ice) 40%,var(--pink));
-  clip-path:polygon(50% 0,100% 35%,80% 100%,20% 100%,0 35%);animation:float 6s ease-in-out infinite}
-@keyframes float{50%{transform:translateY(-30px) rotate(12deg)}}
+/* ---------- NAV ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:20;
+  display:flex;justify-content:space-between;align-items:center;gap:20px;
+  padding:10px 24px;background:var(--black);border-bottom:4px solid var(--red);
+}
+nav .logo{font-size:26px;color:var(--white);letter-spacing:2px}
+nav .logo b{color:var(--red)}
+nav ul{display:flex;gap:18px;list-style:none;flex-wrap:wrap}
+nav li a{
+  font-weight:700;text-transform:uppercase;font-size:14px;padding:3px 8px;
+  border:2px solid transparent;
+}
+nav li a:hover{background:var(--yellow);color:#000;transform:rotate(-3deg);display:inline-block}
 
-.marquee{background:var(--acid);color:#000;overflow:hidden;white-space:nowrap;transform:rotate(-1.5deg);
-  margin:40px -10px;font-family:Impact,sans-serif;font-size:28px;padding:10px 0;border-block:3px solid #000}
-.marquee.alt{background:var(--pink);transform:rotate(1.2deg)}
-.marquee span{display:inline-block;animation:run 15s linear infinite}
-@keyframes run{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* ---------- HERO ---------- */
+.hero{
+  min-height:100vh;padding:130px 20px 90px;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  background:
+    radial-gradient(circle at 15% 25%,rgba(214,0,28,.35),transparent 40%),
+    radial-gradient(circle at 85% 80%,rgba(214,0,28,.25),transparent 40%);
+}
+.ransom{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;max-width:1100px}
+.ransom span{
+  display:inline-block;font-size:clamp(46px,11vw,150px);line-height:1;padding:.02em .12em;
+  box-shadow:4px 4px 0 rgba(0,0,0,.7);
+}
+.ransom span:nth-child(1){background:var(--white);color:#000;transform:rotate(-5deg);font-family:Impact,sans-serif}
+.ransom span:nth-child(2){background:var(--red);color:#fff;transform:rotate(3deg) translateY(8px);font-family:"Times New Roman",serif;font-weight:900}
+.ransom span:nth-child(3){background:#000;color:var(--yellow);transform:rotate(-2deg);border:3px solid var(--white);font-family:"Courier New",monospace;font-weight:900}
+.ransom span:nth-child(4){background:var(--yellow);color:#000;transform:rotate(6deg) translateY(-6px);font-family:Impact,sans-serif}
+.ransom span:nth-child(5){background:var(--paper);color:var(--red);transform:rotate(-4deg);font-family:Georgia,serif;font-style:italic;font-weight:900}
+.ransom span:nth-child(6){background:#000;color:#fff;transform:rotate(2deg) translateY(10px);border:3px dashed var(--red);font-family:Impact,sans-serif}
+.ransom span:nth-child(7){background:var(--white);color:#000;transform:rotate(-6deg);font-family:"Courier New",monospace;font-weight:900}
+.ransom span:nth-child(8){background:var(--red);color:var(--yellow);transform:rotate(4deg) translateY(-4px);font-family:Impact,sans-serif}
 
-section{padding:80px 28px;max-width:1100px;margin:auto}
-h2{font-family:Impact,sans-serif;font-size:clamp(36px,7vw,80px);text-transform:uppercase;margin-bottom:36px}
-h2 em{font-style:normal;color:var(--pink)}
-.about p{line-height:1.8;margin-bottom:14px;max-width:700px}
+.hero .tag{
+  margin-top:40px;background:var(--paper);color:#000;padding:12px 22px;font-size:clamp(15px,2vw,22px);
+  transform:rotate(-1.5deg);box-shadow:6px 6px 0 var(--red);max-width:620px;
+}
+.btn{
+  display:inline-block;margin-top:34px;padding:16px 34px;background:var(--red);color:#fff;
+  font-family:Impact,sans-serif;text-transform:uppercase;font-size:22px;letter-spacing:2px;
+  border:3px solid #fff;box-shadow:6px 6px 0 #000;transition:.12s;cursor:pointer;
+}
+.btn:hover{background:var(--yellow);color:#000;transform:translate(4px,4px) rotate(-2deg);box-shadow:2px 2px 0 #000}
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{border:2px solid #fff;min-height:260px;padding:20px;display:flex;flex-direction:column;justify-content:flex-end;
-  background:linear-gradient(160deg,var(--c),#0c0c0c 65%);transition:.2s}
-.card:hover{transform:rotate(-2deg) scale(1.03);border-color:var(--acid)}
-.card small{color:var(--acid);text-transform:uppercase}
-.card h3{font-family:Impact,sans-serif;font-size:30px}
+/* стикеры в hero */
+.sticker{
+  position:absolute;display:grid;place-items:center;text-align:center;
+  font-family:Impact,sans-serif;text-transform:uppercase;border-radius:50%;
+  width:var(--s);height:var(--s);background:var(--bg);color:var(--fg);
+  border:4px solid var(--fg);font-size:calc(var(--s)/4.2);line-height:1;
+  transform:rotate(var(--r));box-shadow:4px 4px 0 rgba(0,0,0,.6);
+  animation:wob 4s ease-in-out infinite;
+}
+@keyframes wob{50%{transform:rotate(calc(var(--r) + 8deg)) scale(1.05)}}
+.s1{--s:120px;--bg:var(--yellow);--fg:#000;--r:-14deg;left:6%;top:22%;font-size:60px}
+.s2{--s:110px;--bg:#000;--fg:var(--red);--r:12deg;right:7%;top:20%;font-size:58px}
+.s3{--s:100px;--bg:var(--red);--fg:#fff;--r:-8deg;left:12%;bottom:10%}
+.s4{--s:90px;--bg:var(--white);--fg:#000;--r:16deg;right:14%;bottom:12%;font-size:46px}
 
-.row{display:flex;gap:24px;align-items:center;padding:18px 0;border-bottom:1px solid #333;transition:.2s}
-.row:hover{padding-left:14px;background:linear-gradient(90deg,rgba(198,255,0,.15),transparent)}
-.row b{color:var(--acid);min-width:70px}
-.row span{flex:1;text-transform:uppercase}
-.row i{font-style:normal;border:1px solid var(--pink);color:var(--pink);padding:3px 10px;font-size:12px}
+/* ---------- ЛЕНТА ---------- */
+.tape{
+  background:repeating-linear-gradient(-45deg,var(--yellow) 0 22px,#000 22px 44px);
+  padding:10px 0;transform:rotate(-2deg);margin:30px -20px;border-block:3px solid #000;
+}
+.tape .in{background:var(--yellow);color:#000;overflow:hidden;white-space:nowrap;
+  font-family:Impact,sans-serif;font-size:26px;padding:6px 0;margin:0 0}
+.tape .in span{display:inline-block;animation:run 20s linear infinite}
+.tape.red{background:repeating-linear-gradient(45deg,var(--red) 0 22px,#000 22px 44px);transform:rotate(1.5deg)}
+.tape.red .in{background:var(--red);color:#fff}
+.tape.red .in span{animation-direction:reverse}
+@keyframes run{to{transform:translateX(-50%)}}
 
-form{display:grid;gap:14px;max-width:520px}
-input,textarea{background:none;border:2px solid #fff;color:#fff;padding:14px;font-family:inherit;outline:none}
-input:focus,textarea:focus{border-color:var(--acid);box-shadow:5px 5px 0 var(--acid)}
+/* ---------- СЕКЦИИ ---------- */
+section{padding:80px 24px;max-width:1150px;margin:auto;position:relative}
+h2{
+  font-family:Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(40px,8vw,96px);line-height:1;margin-bottom:40px;
+}
+h2 span{background:var(--white);color:#000;padding:0 .15em;display:inline-block;transform:rotate(-2deg)}
+h2 em{font-style:normal;background:var(--red);color:#fff;padding:0 .15em;display:inline-block;transform:rotate(2deg);margin-left:6px}
 
-footer{text-align:center;padding:60px 20px;border-top:3px solid var(--acid);color:#888;font-size:12px;letter-spacing:.2em}
-footer .big{font-family:Impact,sans-serif;font-size:clamp(40px,12vw,150px);color:transparent;
-  -webkit-text-stroke:2px #fff;margin-bottom:16px}
-footer .big:hover{-webkit-text-stroke-color:var(--pink)}
+/* бумажный лист */
+.paper{
+  background:var(--paper);color:#111;padding:34px 30px;position:relative;
+  box-shadow:8px 8px 0 #000;
+  clip-path:polygon(0 2%,4% 0,9% 2%,15% 0,22% 2%,30% 0,38% 2%,46% 0,55% 2%,63% 0,72% 2%,80% 0,88% 2%,95% 0,100% 2%,
+                    100% 98%,94% 100%,86% 98%,77% 100%,68% 98%,58% 100%,48% 98%,38% 100%,27% 98%,17% 100%,8% 98%,0 100%);
+}
+.paper p{line-height:1.8;margin-bottom:14px;font-size:17px}
+.paper p mark{background:var(--yellow);padding:0 4px}
+.paper .scribble{color:var(--red);font-size:22px;transform:rotate(-2deg);display:inline-block;margin-top:6px}
+.about{display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:start}
+.tapepiece{
+  position:absolute;top:-14px;left:50%;width:120px;height:30px;margin-left:-60px;
+  background:rgba(255,230,0,.75);transform:rotate(-4deg);z-index:2;
+}
+.rules{background:#000;border:3px solid var(--white);padding:26px;transform:rotate(2deg);position:relative}
+.rules h3{font-family:Impact,sans-serif;color:var(--red);font-size:30px;text-transform:uppercase;margin-bottom:12px}
+.rules li{list-style:none;padding:6px 0;border-bottom:1px dashed #555;text-transform:uppercase;font-size:14px}
+.rules li::before{content:"✖ ";color:var(--red)}
 
-@media(max-width:700px){nav ul{display:none}}
-</style>
-</head>
-<body>
+/* ---------- НАШИВКИ (сквад) ---------- */
+.patches{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:30px}
+.patch{
+  background:var(--bg);color:var(--fg);padding:28px 20px;min-height:260px;text-align:center;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+  border:4px dashed var(--fg);outline:6px solid var(--bg);outline-offset:0;margin:6px;
+  transform:rotate(var(--r));transition:.2s;box-shadow:6px 6px 0 #000;
+}
+.patch:hover{transform:rotate(0) scale(1.05)}
+.patch .ico{font-size:64px;line-height:1}
+.patch h3{font-family:Impact,sans-serif;font-size:38px;letter-spacing:2px;text-transform:uppercase}
+.patch small{text-transform:uppercase;letter-spacing:.15em;font-weight:700;font-size:12px}
+.p1{--bg:var(--red);--fg:#fff;--r:-3deg}
+.p2{--bg:#000;--fg:var(--yellow);--r:2deg}
+.p3{--bg:var(--paper);--fg:#000;--r:-2deg}
+.p4{--bg:#222;--fg:var(--white);--r:3deg}
 
-<nav>
-  <a href="#top"><b>CRY✦SQUAD</b></a>
-  <ul>
-    <li><a href="#about">манифест</a></li>
-    <li><a href="#squad">сквад</a></li>
-    <li><a href="#tour">движ</a></li>
-    <li><a href="#join">вступить</a></li>
-  </ul>
-</nav>
+/* ---------- ТРЕКЛИСТ ---------- */
+.tracks{background:#000;border:3px solid var(--white);padding:10px 24px}
+.track{display:grid;grid-template-columns:50px 1fr auto;gap:16px;padding:16px 0;border-bottom:1px dashed #444;align-items:center;transition:.15s}
+.track:last-child{border:none}
+.track:hover{background:var(--red);padding-left:12px}
+.track .n{font-family:Impact,sans-serif;font-size:28px;color:var(--red)}
+.track:hover .n{color:#fff}
+.track .t{text-transform:uppercase;font-size:18px;font-weight:700}
+.track .d{color:#888;font-size:13px}
+.track:hover .d{color:#fff}
 
-<header class="hero" id="top">
-  <div class="crystal" style="--s:60px;left:10%;top:25%"></div>
-  <div class="crystal" style="--s:110px;right:8%;top:18%;animation-delay:-2s"></div>
-  <div class="crystal" style="--s:40px;left:20%;bottom:15%;animation-delay:-4s"></div>
-  <div class="crystal" style="--s:80px;right:22%;bottom:10%;animation-delay:-1s"></div>
-  <h1>CRYSQUAD</h1>
-  <p>// плачь красиво. живи громко. //</p>
-  <a href="#join" class="btn">войти в сквад →</a>
-</header>
+/* ---------- ГИГИ (билеты) ---------- */
+.tickets{display:grid;gap:22px}
+.ticket{
+  display:grid;grid-template-columns:130px 1fr auto;align-items:center;
+  background:var(--paper);color:#000;box-shadow:6px 6px 0 var(--red);
+  transform:rotate(var(--r));transition:.15s;
+}
+.ticket:hover{transform:rotate(0) translateX(8px)}
+.ticket .date{
+  background:#000;color:var(--yellow);font-family:Impact,sans-serif;font-size:38px;
+  padding:22px 10px;text-align:center;border-right:4px dotted var(--paper);line-height:1;
+}
+.ticket .date small{display:block;font-size:14px;color:#fff;margin-top:4px}
+.ticket .place{padding:14px 22px;text-transform:uppercase;font-weight:700;font-size:18px}
+.ticket .place small{display:block;font-weight:400;color:#555;font-size:12px;margin-top:4px}
+.ticket .go{padding:0 24px;font-family:Impact,sans-serif;color:var(--red);font-size:22px;text-transform:uppercase}
+.ticket.out .go{color:#777;text-decoration:line-through}
+.ticket.out{opacity:.7}
 
-<div class="marquee"><span>CRYSQUAD ✦ НЕ ДЛЯ ВСЕХ ✦ CRYSQUAD ✦ ТОЛЬКО СВОИ ✦ CRYSQUAD ✦ НЕ ДЛЯ ВСЕХ ✦ CRYSQUAD ✦ ТОЛЬКО СВОИ ✦ CRYSQUAD ✦ НЕ ДЛЯ ВСЕХ ✦ CRYSQUAD ✦ ТОЛЬКО СВОИ ✦</span></div>
+/* ---------- ФОРМА ---------- */
+form{display:grid;gap:18px;max-width:600px}
+label{font-family:"Segoe Print","Comic Sans MS",cursive;color:var(--yellow);font-size:18px}
+input,textarea{
+  background:var(--paper);border:3px solid #000;color:#000;padding:14px;
+  font-family:"Courier New",monospace;font-size:16px;outline:none;box-shadow:5px 5px 0 var(--red);
+}
+input:focus,textarea:focus{background:#fff;box-shadow:5px 5px 0 var(--yellow)}
+form .btn{margin:0;justify-self:start}
 
-<section id="about" class="about">
-  <h2>Мани<em>фест</em></h2>
-  <p>Мы не вписываемся в рамки, и нам это нравится. Crysquad - комьюнити людей, которым тесно в чужих стандартах.</p>
-  <p>Тёмные худи, яркий неон, громкий бит и честные эмоции.</p>
-  <p>Если ты чувствуешь так же, ты уже в скваде.</p>
-</section>
-
-<div class="marquee alt"><span>★ NEW DROP ★ СКОРО ★ NEW DROP ★ СКОРО ★ NEW DROP ★ СКОРО ★ NEW DROP ★ СКОРО ★ NEW DROP ★ СКОРО ★ NEW DROP ★ СКОРО ★</span></div>
-
-<section id="squad">
-  <h2>Наш <em>сквад</em></h2>
-  <div class="grid">
-    <div class="card" style="--c:#ff2bd6"><small>вокал</small><h3>NOVA</h3></div>
-    <div class="card" style="--c:#8fbf00"><small>продакшн</small><h3>GLITCH</h3></div>
-    <div class="card" style="--c:#2aa9b8"><small>визуал</small><h3>ICE</h3></div>
-    <div class="card" style="--c:#8a2be2"><small>ивенты</small><h3>VOID</h3></div>
-  </div>
-</section>
-
-<section id="tour">
-  <h2>Ближайший <em>движ</em></h2>
-  <div class="row"><b>12.07</b><span>Москва - Подвал</span><i>билеты</i></div>
-  <div class="row"><b>26.07</b><span>Питер - Клуб 808</span><i>билеты</i></div>
-  <div class="row"><b>09.08</b><span>Казань - Rooftop</span><i>sold out</i></div>
-</section>
-
-<section id="join">
-  <h2>Вступить в <em>сквад</em></h2>
-  <form onsubmit="event.preventDefault();this.innerHTML='<h2>ты в деле ✦</h2>'">
-    <input placeholder="твой ник" required>
-    <input type="email" placeholder="e-mail" required>
-    <textarea rows="4" placeholder="расскажи о себе"></textarea>
-    <button class="btn" style="margin:0">отправить</button>
-  </form>
-</section>
-
-<footer>
-  <div class="big">CRYSQUAD</div>
-  <p>© 2025 · TG · IG · YT · TikTok</p>
-</footer>
-
-</body>
-</html>
+/* ---------- ФУТЕР ---------- */
+footer{
+  margin-top:60px;background:#000;border-top:6px solid var(--red);text-align:center;padding:60px 20px 40px;
+}
+footer .big{
+  font-family:Impact,sans-serif;font-size:clamp(46px,13vw,180px);line-height:1;
+  color:transparent;-webkit-text-stroke:2px var(--white);text-transform:uppercase;
+  transition:.2s;
+}
+footer .big:hover{color:var(--red);-webkit-text-stroke-color:var(--red)}
+footer p{margin-top:18px;color:#888;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
